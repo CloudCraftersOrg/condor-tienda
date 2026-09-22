@@ -10,6 +10,9 @@ if [ -f /opt/condor-tienda/FAIL_DEPLOY ]; then
 fi
 
 cp /opt/condor-tienda/deploy/condor-tienda.service /etc/systemd/system/condor-tienda.service
+cp /opt/condor-tienda/deploy/condor-tienda-traffic.service /etc/systemd/system/condor-tienda-traffic.service
+cp /opt/condor-tienda/deploy/condor-tienda-traffic.timer /etc/systemd/system/condor-tienda-traffic.timer
 systemctl daemon-reload
 systemctl enable condor-tienda
 systemctl start condor-tienda
+systemctl enable --now condor-tienda-traffic.timer
