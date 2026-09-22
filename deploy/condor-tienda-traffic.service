@@ -1,0 +1,7 @@
+[Unit]
+Description=Condor Tienda harness traffic (P1-14)
+After=condor-tienda.service
+
+[Service]
+Type=oneshot
+ExecStart=/usr/bin/curl -sf "http://localhost:8080/checkout?amount=100" -o /dev/null
